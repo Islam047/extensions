@@ -1,11 +1,14 @@
 /// not done yet
+///
 // "test salom".isURL;
 // "test salom".isPhoneNumber;
-// "test salom".isHexadecimal;
-//
+
 
 extension ForString on String {
-  String capitalize(String s) {
+  /// Time Complexity O(n)
+  /// Space Complexity O(1)
+  String get capitalize {
+    String s = this;
     if (s.isEmpty) {
       return '';
     }
@@ -21,7 +24,11 @@ extension ForString on String {
     return str;
   }
 
-  String capitalizeFirst(String s) {
+  String get capitalizeFirst {
+    /// Time Complexity O(n)
+    /// Space Complexity O(1)
+
+    String s = this;
     if (s.isEmpty) {
       return '';
     }
@@ -36,18 +43,26 @@ extension ForString on String {
     return s;
   }
 
-  String camelCase(String s) {
+  String get camelCase {
+    /// Time Complexity O(n)
+    /// Space Complexity O(1)
+
+    String s = this;
     if (s.isEmpty) {
       return '';
     }
-    s = s.capitalize(s);
+    s = s.capitalize;
 
     s = s.split(' ').join();
     s = s.replaceRange(0, 0 + 1, s[0].toLowerCase());
     return s;
   }
 
-  bool isAlphabetOnly(String s) {
+  bool get isAlphabetOnly {
+    /// Time Complexity O(1)
+    /// Space Complexity O(1)
+
+    String s = this;
     if (s.isEmpty) {
       return false;
     }
@@ -55,7 +70,11 @@ extension ForString on String {
     return exp.hasMatch(s);
   }
 
-  bool isAudioFileName(String s) {
+  bool get isAudioFileName {
+    /// Time Complexity O(1)
+    /// Space Complexity O(1)
+
+    String s = this;
     if (s.isEmpty) {
       return false;
     }
@@ -63,7 +82,11 @@ extension ForString on String {
     return exp.hasMatch(s);
   }
 
-  bool isBool(String s) {
+  bool get isBool {
+    /// Time Complexity O(1)
+    /// Space Complexity O(1)
+
+    String s = this;
     if (s.isEmpty) {
       return false;
     }
@@ -71,7 +94,11 @@ extension ForString on String {
     return exp.hasMatch(s);
   }
 
-  bool isPalindrom(String s) {
+  bool get isPalindrome {
+    /// Time Complexity O(n)
+    /// Space Complexity O(1)
+
+    String s = this;
     if (s.isEmpty) {
       return false;
     }
@@ -86,11 +113,23 @@ extension ForString on String {
     }
   }
 
-  bool isEmail(String s) {
+  bool get isEmail {
+    /// Time Complexity O(1)
+    /// Space Complexity O(1)
+
+    String s = this;
     if (s.isEmpty) {
       return false;
     }
-    RegExp exp = RegExp(r'^\w+\.gmail.com');
+    RegExp exp = RegExp(r'^\w+\.@gmail.com');
     return exp.hasMatch(s);
   }
+  bool get isHexadecimal{
+    if(replaceAll(RegExp('[A-Fa-f0-9]|[A-F]'), '').isEmpty){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
 }
